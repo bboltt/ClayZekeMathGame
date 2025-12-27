@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft Math Adventure - Multiplication</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="minecraft-sky">
+        <div class="game-container">
+            <header class="game-header">
+                <h1 class="minecraft-title">⛏️ MINECRAFT MATH ⛏️</h1>
+                <p class="subtitle">Multiplication Adventure</p>
+            </header>
+
+            <div class="stats-bar">
+                <div class="stat-item">
+                    <span class="stat-label">Score:</span>
+                    <span id="score" class="stat-value">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Streak:</span>
+                    <span id="streak" class="stat-value">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Total:</span>
+                    <span id="total" class="stat-value">0</span>
+                </div>
+            </div>
+
+            <div class="game-area">
+                <div class="question-block">
+                    <div class="creeper-icon">🧱</div>
+                    <h2 class="question" id="question">Get Ready!</h2>
+                </div>
+
+                <div class="answer-section">
+                    <input
+                        type="number"
+                        id="answer-input"
+                        class="answer-input"
+                        placeholder="Type answer..."
+                        autocomplete="off"
+                    >
+                    <button id="submit-btn" class="minecraft-button">Submit</button>
+                </div>
+
+                <div id="feedback" class="feedback"></div>
+            </div>
+
+            <div class="controls">
+                <button id="new-question-btn" class="minecraft-button secondary">New Question</button>
+            </div>
+
+            <div class="achievements">
+                <h3>🏆 Achievements</h3>
+                <div id="achievement-list" class="achievement-list">
+                    <span class="achievement locked">🌟 First Correct!</span>
+                    <span class="achievement locked">🔥 Streak of 5</span>
+                    <span class="achievement locked">💎 Streak of 10</span>
+                    <span class="achievement locked">👑 Master (50 correct)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="grass-ground"></div>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
