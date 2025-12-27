@@ -87,12 +87,14 @@ class MathGame {
         this.updateStats();
 
         const messages = [
-            '✨ Awesome! You mined a diamond! 💎',
-            '🎉 Correct! You built a masterpiece! 🏰',
-            '⭐ Great job! Steve is proud! 🎮',
-            '🔥 Perfect! You defeated the Creeper! 💚',
-            '🌟 Excellent! You found the treasure! 🗝️',
-            '👏 Amazing! You crafted success! ⚒️'
+            '💎 Perfect! You mined diamonds! 💎',
+            '🧱 Correct! Block placed successfully! 🧱',
+            '⛏️ Great mining! Steve approves! 🧑‍🌾',
+            '🟩 Excellent! Creeper defeated! 🟩',
+            '🔥 You crafted the answer! 🔥',
+            '⚔️ Victory! Another block conquered! ⚔️',
+            '🪵 You chopped the right answer! 🪵',
+            '🏰 Amazing! Castle built correctly! 🏰'
         ];
 
         const randomMessage = messages[Math.floor(Math.random() * messages.length)];
@@ -113,10 +115,11 @@ class MathGame {
 
         const correctAnswer = this.currentQuestion.answer;
         const messages = [
-            `💥 Oops! The answer is ${correctAnswer}. Try again! 🎯`,
-            `🧨 Not quite! It's ${correctAnswer}. Keep mining! ⛏️`,
-            `❌ The answer is ${correctAnswer}. Don't give up! 💪`,
-            `🔴 Close! The correct answer is ${correctAnswer}. 🎮`
+            `🟩 Creeper says: It's ${correctAnswer}! Try again! 🟩`,
+            `⛏️ Wrong block! The answer is ${correctAnswer}. Keep mining! ⛏️`,
+            `🧱 Oops! Break block ${correctAnswer} instead! 🧱`,
+            `🧑‍🌾 Steve says: It's ${correctAnswer}. Keep crafting! 🧑‍🌾`,
+            `🔴 Block not found! The answer is ${correctAnswer}! 🔴`
         ];
 
         const randomMessage = messages[Math.floor(Math.random() * messages.length)];
@@ -143,25 +146,25 @@ class MathGame {
         // First Correct
         if (!this.achievements.firstCorrect && this.score >= 1) {
             this.achievements.firstCorrect = true;
-            this.unlockAchievement(achievementElements[0], '🌟 First Correct!');
+            this.unlockAchievement(achievementElements[0], '🪵 First Block Mined!');
         }
 
         // Streak of 5
         if (!this.achievements.streak5 && this.streak >= 5) {
             this.achievements.streak5 = true;
-            this.unlockAchievement(achievementElements[1], '🔥 Streak of 5');
+            this.unlockAchievement(achievementElements[1], '🔥 5 Block Streak');
         }
 
         // Streak of 10
         if (!this.achievements.streak10 && this.streak >= 10) {
             this.achievements.streak10 = true;
-            this.unlockAchievement(achievementElements[2], '💎 Streak of 10');
+            this.unlockAchievement(achievementElements[2], '💎 Diamond Miner (10)');
         }
 
         // Master - 50 correct
         if (!this.achievements.master50 && this.score >= 50) {
             this.achievements.master50 = true;
-            this.unlockAchievement(achievementElements[3], '👑 Master (50 correct)');
+            this.unlockAchievement(achievementElements[3], '👑 Minecraft Master (50)');
         }
     }
 

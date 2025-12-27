@@ -6,8 +6,11 @@
 }
 
 body {
-    font-family: 'Courier New', monospace;
+    font-family: 'Courier New', 'Press Start 2P', monospace;
     overflow-x: hidden;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
+    image-rendering: crisp-edges;
 }
 
 /* Sky Background */
@@ -60,6 +63,59 @@ body {
     margin-top: 10px;
     text-shadow: 2px 2px 0 #000;
     font-weight: bold;
+}
+
+/* Minecraft Characters in Header */
+.minecraft-characters {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 10px;
+}
+
+.steve-character, .creeper-character {
+    font-size: 3em;
+    animation: float 3s ease-in-out infinite;
+    filter: drop-shadow(3px 3px 0 #000);
+}
+
+.steve-character {
+    animation-delay: 0s;
+}
+
+.creeper-character {
+    animation-delay: 1.5s;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-15px); }
+}
+
+/* Block Decoration */
+.block-decoration {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+}
+
+.mini-block {
+    font-size: 1.5em;
+    display: inline-block;
+    animation: blockPulse 2s infinite;
+    filter: drop-shadow(2px 2px 0 #000);
+}
+
+.mini-block:nth-child(1) { animation-delay: 0s; }
+.mini-block:nth-child(2) { animation-delay: 0.2s; }
+.mini-block:nth-child(3) { animation-delay: 0.4s; }
+.mini-block:nth-child(4) { animation-delay: 0.6s; }
+
+@keyframes blockPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
 }
 
 /* Stats Bar */
@@ -117,10 +173,55 @@ body {
     position: relative;
 }
 
-.creeper-icon {
-    font-size: 3em;
-    margin-bottom: 10px;
-    animation: bounce 2s infinite;
+/* Creeper Face - Pixel Art */
+.creeper-face {
+    background: #7CB342;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 20px;
+    padding: 15px;
+    border: 4px solid #558B2F;
+    box-shadow: 0 4px 0 #33691E;
+    animation: creeperShake 3s infinite;
+}
+
+.creeper-eyes {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 15px;
+}
+
+.creeper-eyes .eye {
+    font-size: 1.5em;
+    display: inline-block;
+}
+
+.creeper-mouth {
+    text-align: center;
+}
+
+.creeper-mouth .mouth {
+    font-size: 2em;
+    display: inline-block;
+}
+
+@keyframes creeperShake {
+    0%, 90%, 100% { transform: translateX(0); }
+    92%, 96% { transform: translateX(-5px); }
+    94%, 98% { transform: translateX(5px); }
+}
+
+/* Steve Mining */
+.steve-mining {
+    font-size: 2em;
+    margin-top: 15px;
+    animation: mining 1.5s infinite;
+}
+
+@keyframes mining {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(-15deg); }
+    75% { transform: rotate(15deg); }
 }
 
 @keyframes bounce {
@@ -298,17 +399,39 @@ body {
     100% { transform: scale(1); }
 }
 
-/* Grass Ground */
+/* Grass Ground - Minecraft Style */
 .grass-ground {
     position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
     height: 80px;
-    background: linear-gradient(to bottom, #7CB342 0%, #558B2F 50%, #33691E 100%);
+    background:
+        repeating-linear-gradient(
+            90deg,
+            #7CB342 0px, #7CB342 40px,
+            #689F38 40px, #689F38 80px
+        ),
+        linear-gradient(to bottom,
+            #7CB342 0%, #7CB342 40%,
+            #795548 40%, #795548 100%
+        );
     border-top: 5px solid #9CCC65;
-    box-shadow: inset 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow:
+        inset 0 10px 20px rgba(0, 0, 0, 0.2),
+        inset 0 -10px 20px rgba(101, 67, 33, 0.5);
     z-index: 5;
+    overflow: hidden;
+}
+
+.grass-ground::before {
+    content: '🟩🟫⬛🟩🟫⬛🟩🟫⬛🟩🟫⬛🟩🟫⬛🟩🟫⬛🟩🟫⬛';
+    position: absolute;
+    top: 5px;
+    left: 0;
+    font-size: 1.2em;
+    opacity: 0.3;
+    letter-spacing: 5px;
 }
 
 /* Responsive Design */
