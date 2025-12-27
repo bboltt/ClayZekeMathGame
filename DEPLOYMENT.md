@@ -4,30 +4,9 @@ This guide will help you deploy the Minecraft Math Adventure game to the web usi
 
 ## Quick Deployment Steps
 
-### Option 1: Deploy from Main Branch (Recommended)
+### Option 1: Deploy from Branch Directly (Easiest - Recommended)
 
-1. **Merge your changes to main branch:**
-   ```bash
-   # First, merge this branch to main
-   git checkout main || git checkout -b main
-   git merge claude/minecraft-math-game-HzS8q
-   git push origin main
-   ```
-
-2. **Enable GitHub Pages:**
-   - Go to your repository on GitHub
-   - Click on "Settings" tab
-   - Scroll to "Pages" section in the left sidebar
-   - Under "Source", select "GitHub Actions"
-   - The workflow will automatically deploy your site
-
-3. **Access your game:**
-   - After a few minutes, your game will be live at:
-   - `https://bboltt.github.io/ClayZekeMathGame/`
-
-### Option 2: Deploy from Branch Directly
-
-If you want to deploy directly from a branch without using GitHub Actions:
+Deploy directly from the current branch:
 
 1. **Go to Repository Settings:**
    - Navigate to your GitHub repository
@@ -42,6 +21,24 @@ If you want to deploy directly from a branch without using GitHub Actions:
 3. **Wait for deployment:**
    - GitHub will automatically build and deploy
    - Your site will be available at: `https://bboltt.github.io/ClayZekeMathGame/`
+
+### Option 2: Deploy via Main Branch (Using GitHub Actions)
+
+For automatic deployment using GitHub Actions:
+
+1. **Create and merge to main branch via GitHub:**
+   - Go to your repository on GitHub
+   - Click "Pull requests" → "New pull request"
+   - Set base to `main` and compare to `claude/minecraft-math-game-HzS8q`
+   - Create and merge the pull request
+
+2. **Enable GitHub Pages:**
+   - Go to repository "Settings" → "Pages"
+   - Under "Source", select "GitHub Actions"
+   - The workflow will automatically deploy
+
+3. **Access your game:**
+   - Your site will be live at: `https://bboltt.github.io/ClayZekeMathGame/`
 
 ## Verification
 
