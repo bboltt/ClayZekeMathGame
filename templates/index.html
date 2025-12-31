@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}Welcome - Minecraft Math Adventure{% endblock %}
+
+{% block content %}
+<div class="game-container landing-page">
+    <header class="game-header">
+        <div class="minecraft-characters">
+            <div class="steve-character">🧑‍🌾</div>
+            <h1 class="minecraft-title">⛏️ MINECRAFT MATH ⛏️</h1>
+            <div class="creeper-character">🟩</div>
+        </div>
+        <p class="subtitle">⚔️ Master Multiplication with Spaced Repetition ⚔️</p>
+        <div class="block-decoration">
+            <span class="mini-block grass">🟩</span>
+            <span class="mini-block dirt">🟫</span>
+            <span class="mini-block stone">⬜</span>
+            <span class="mini-block diamond">💎</span>
+        </div>
+    </header>
+
+    <div class="landing-content">
+        <div class="feature-box">
+            <h2>🎮 Features</h2>
+            <ul class="feature-list">
+                <li>🧠 <strong>Smart Learning:</strong> Questions adapt to your progress</li>
+                <li>📊 <strong>Track Progress:</strong> See your stats and improvements</li>
+                <li>⏰ <strong>Spaced Repetition:</strong> Learn efficiently with science-backed methods</li>
+                <li>🏆 <strong>Achievements:</strong> Unlock rewards as you master multiplication</li>
+                <li>💎 <strong>Minecraft Theme:</strong> Learn in your favorite blocky world!</li>
+            </ul>
+        </div>
+
+        <div class="auth-buttons">
+            <a href="{{ url_for('signup') }}" class="minecraft-button large">🎯 Start Learning</a>
+            <a href="{{ url_for('login') }}" class="minecraft-button secondary large">🔑 Login</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}404 - Page Not Found{% endblock %}
+
+{% block content %}
+<div class="game-container">
+    <header class="game-header">
+        <h1 class="minecraft-title">🔍 404 ERROR 🔍</h1>
+        <p class="subtitle">Block Not Found!</p>
+    </header>
+
+    <div class="error-content">
+        <p style="font-size: 5em; text-align: center;">🧱❌</p>
+        <p style="text-align: center; font-size: 1.3em; margin: 20px;">
+            Oops! Looks like you tried to mine a block that doesn't exist!
+        </p>
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="{{ url_for('index') }}" class="minecraft-button large">⛏️ Return to Base</a>
+        </div>
+    </div>
+</div>
+{% endblock %}
