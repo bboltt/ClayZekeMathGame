@@ -81,6 +81,22 @@ class QuestionProgress(db.Model):
 
     def update_after_answer(self, is_correct, response_time):
         """Update progress using SM-2 spaced repetition algorithm"""
+        # Initialize None values to 0 (handles new records before commit)
+        if self.total_attempts is None:
+            self.total_attempts = 0
+        if self.correct_count is None:
+            self.correct_count = 0
+        if self.wrong_count is None:
+            self.wrong_count = 0
+        if self.average_response_time is None:
+            self.average_response_time = 0.0
+        if self.repetitions is None:
+            self.repetitions = 0
+        if self.interval is None:
+            self.interval = 0
+        if self.ease_factor is None:
+            self.ease_factor = 2.5
+
         self.total_attempts += 1
 
         # Update average response time
