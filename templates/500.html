@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}500 - Server Error{% endblock %}
+
+{% block content %}
+<div class="game-container">
+    <header class="game-header">
+        <h1 class="minecraft-title">💥 500 ERROR 💥</h1>
+        <p class="subtitle">Creeper Explosion!</p>
+    </header>
+
+    <div class="error-content">
+        <p style="font-size: 5em; text-align: center;">🟩💥</p>
+        <p style="text-align: center; font-size: 1.3em; margin: 20px;">
+            Something went wrong on our end! A creeper must have exploded in the server room.
+        </p>
+        <p style="text-align: center; font-size: 1.1em; margin: 20px;">
+            Don't worry, we're fixing it! Try again in a moment.
+        </p>
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="{{ url_for('index') }}" class="minecraft-button large">🏠 Go Home</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

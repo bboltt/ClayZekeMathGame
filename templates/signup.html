@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+
+{% block title %}Sign Up - Minecraft Math Adventure{% endblock %}
+
+{% block content %}
+<div class="game-container auth-container">
+    <header class="game-header">
+        <h1 class="minecraft-title">⛏️ CREATE ACCOUNT ⛏️</h1>
+        <p class="subtitle">Join the Minecraft Math Adventure!</p>
+    </header>
+
+    <div class="auth-form-container">
+        <form method="POST" action="{{ url_for('signup') }}" class="auth-form">
+            <div class="form-group">
+                <label for="username">🧑‍🌾 Username:</label>
+                <input
+                    type="text"
+                    id="username"
+                    name="username"
+                    class="minecraft-input"
+                    required
+                    minlength="3"
+                    placeholder="Choose your Minecraft name"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="email">📧 Email:</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    class="minecraft-input"
+                    required
+                    placeholder="your@email.com"
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="password">🔒 Password:</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    class="minecraft-input"
+                    required
+                    minlength="6"
+                    placeholder="At least 6 characters"
+                >
+            </div>
+
+            <button type="submit" class="minecraft-button large">🎮 Create Account</button>
+        </form>
+
+        <div class="auth-link">
+            Already have an account?
+            <a href="{{ url_for('login') }}">Login here</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

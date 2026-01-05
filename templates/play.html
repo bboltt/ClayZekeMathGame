@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}Play - Minecraft Math Adventure{% endblock %}
+
+{% block content %}
+<div class="game-container">
+    <header class="game-header">
+        <div class="minecraft-characters">
+            <div class="steve-character">🧑‍🌾</div>
+            <h1 class="minecraft-title">⛏️ MINECRAFT MATH ⛏️</h1>
+            <div class="creeper-character">🟩</div>
+        </div>
+        <p class="subtitle">⚔️ Multiplication Adventure ⚔️</p>
+        <div class="block-decoration">
+            <span class="mini-block grass">🟩</span>
+            <span class="mini-block dirt">🟫</span>
+            <span class="mini-block stone">⬜</span>
+            <span class="mini-block diamond">💎</span>
+        </div>
+    </header>
+
+    <div class="stats-bar">
+        <div class="stat-item">
+            <span class="stat-label">Score:</span>
+            <span id="score" class="stat-value">0</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">Streak:</span>
+            <span id="streak" class="stat-value">0</span>
+        </div>
+        <div class="stat-item">
+            <span class="stat-label">Total:</span>
+            <span id="total" class="stat-value">0</span>
+        </div>
+    </div>
+
+    <div class="game-area">
+        <div class="question-block">
+            <div class="creeper-face">
+                <div class="creeper-eyes">
+                    <span class="eye">⬛</span>
+                    <span class="eye">⬛</span>
+                </div>
+                <div class="creeper-mouth">
+                    <span class="mouth">⬛</span>
+                </div>
+            </div>
+            <h2 class="question" id="question">Get Ready!</h2>
+            <div class="steve-mining">🧑‍🌾 ⛏️</div>
+        </div>
+
+        <div class="answer-section">
+            <input
+                type="number"
+                id="answer-input"
+                class="answer-input"
+                placeholder="Type answer..."
+                autocomplete="off"
+            >
+            <button id="submit-btn" class="minecraft-button">Submit</button>
+        </div>
+
+        <div id="feedback" class="feedback"></div>
+    </div>
+
+    <div class="controls">
+        <button id="new-question-btn" class="minecraft-button secondary">New Question</button>
+    </div>
+
+    <div class="achievements">
+        <h3>🏆 ACHIEVEMENTS 🏆</h3>
+        <div id="achievement-list" class="achievement-list">
+            <span class="achievement locked">🪵 First Block Mined!</span>
+            <span class="achievement locked">🔥 5 Block Streak</span>
+            <span class="achievement locked">💎 Diamond Miner (10)</span>
+            <span class="achievement locked">👑 Minecraft Master (50)</span>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/game.js') }}"></script>
+{% endblock %}

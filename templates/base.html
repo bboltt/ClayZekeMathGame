@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Minecraft Math Adventure{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_css %}{% endblock %}
+</head>
+<body>
+    <div class="minecraft-sky">
+        {% if current_user.is_authenticated %}
+        <nav class="minecraft-nav">
+            <div class="nav-container">
+                <span class="nav-user">🧑‍🌾 {​{ current_user.username }}</span>
+                <div class="nav-links">
+                    <a href="{{ url_for('dashboard') }}" class="nav-link">📊 Dashboard</a>
+                    <a href="{{ url_for('play') }}" class="nav-link">🎮 Play</a>
+                    <a href="{{ url_for('logout') }}" class="nav-link">🚪 Logout</a>
+                </div>
+            </div>
+        </nav>
+        {% endif %}
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                <div class="flash-message flash-{{ category }}">
+                    {{ message }}
+                </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+
+        <div class="grass-ground"></div>
+    </div>
+
+    {% block extra_js %}{% endblock %}
+</body>
+</html>
