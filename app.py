@@ -191,6 +191,19 @@ def play():
     return render_template('play.html', user=current_user)
 
 
+@app.route('/mistakes')
+@login_required
+def review_mistakes():
+    """Review questions answered incorrectly"""
+    # Get all questions with at least one wrong answer
+    mistakes = QuestionProgress.query.filter(
+        QuestionProgress.user_id == current_user.id,
+        QuestionProgress.wrong_count > 0
+    ).order_by(QuestionProgress.wrong_count.desc()).all()
+
+    return render_template('mistakes.html', mistakes=mistakes, user=current_user)
+
+
 # ============================================================================
 # API Routes
 # ============================================================================

@@ -1,0 +1,84 @@
+{% extends "base.html" %}
+
+{% block title %}Review Mistakes - Minecraft Math Adventure{% endblock %}
+
+{% block content %}
+<div class="game-container dashboard-container">
+    <header class="game-header">
+        <h1 class="minecraft-title">❌ REVIEW MISTAKES ❌</h1>
+        <p class="subtitle">📚 Learn from your errors!</p>
+    </header>
+
+    {% if mistakes %}
+    <div class="mistakes-intro">
+        <p style="text-align: center; font-size: 1.1em; margin: 20px;">
+            💡 These are questions you've answered incorrectly. Practice them to improve!
+        </p>
+    </div>
+
+    <div class="mistakes-grid">
+        {% for progress in mistakes %}
+        <div class="mistake-card">
+            <div class="mistake-question">
+                <span class="question-text">
+                    {{ progress.question.num1 }} × {{ progress.question.num2 }} = {{ progress.question.answer }}
+                </span>
+            </div>
+            <div class="mistake-stats">
+                <div class="mistake-stat">
+                    <span class="stat-label">❌ Wrong:</span>
+                    <span class="stat-value">{{ progress.wrong_count }}</span>
+                </div>
+                <div class="mistake-stat">
+                    <span class="stat-label">✅ Correct:</span>
+                    <span class="stat-value">{{ progress.correct_count }}</span>
+                </div>
+                <div class="mistake-stat">
+                    <span class="stat-label">📊 Accuracy:</span>
+                    <span class="stat-value">
+                        {% if progress.total_attempts > 0 %}
+                            {{ "%.0f"|format((progress.correct_count / progress.total_attempts) * 100) }}%
+                        {% else %}
+                            0%
+                        {% endif %}
+                    </span>
+                </div>
+                <div class="mistake-stat">
+                    <span class="stat-label">📝 Total Attempts:</span>
+                    <span class="stat-value">{{ progress.total_attempts }}</span>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <div class="dashboard-actions">
+        <a href="{{ url_for('play') }}" class="minecraft-button large">
+            ⛏️ Practice Now!
+        </a>
+        <a href="{{ url_for('dashboard') }}" class="minecraft-button large" style="margin-left: 10px;">
+            📊 Back to Dashboard
+        </a>
+    </div>
+
+    {% else %}
+    <div class="no-mistakes">
+        <p style="font-size: 4em; text-align: center;">🏆</p>
+        <p style="text-align: center; font-size: 1.3em; margin: 20px;">
+            Amazing! You haven't made any mistakes yet!
+        </p>
+        <p style="text-align: center; font-size: 1.1em; margin: 20px;">
+            Keep up the great work, Minecraft Master! 💎
+        </p>
+        <div style="text-align: center; margin-top: 30px;">
+            <a href="{{ url_for('play') }}" class="minecraft-button large">
+                ⛏️ Continue Playing
+            </a>
+            <a href="{{ url_for('dashboard') }}" class="minecraft-button large" style="margin-left: 10px;">
+                📊 Dashboard
+            </a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
